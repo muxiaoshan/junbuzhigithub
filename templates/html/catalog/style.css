@@ -1,0 +1,40 @@
+.catalog {
+    width: 936px;
+    margin: 10px auto;
+    text-align: left;
+    border: 1px solid #eee;
+    padding: 9px;
+	background:#fff;
+	font-size:14px;
+	color:#B64906;
+}
+.catalog a{color:#B64906;}
+.catalog .fq_this_bg_l{ background:url(images/cat_bg.png) 0 0 no-repeat; height:20px; width:3px; float:left;}
+.catalog .fq_this_bg_c{ background:url(images/cat_bg.png) 0px -20px repeat-x; height:20px; float:left; width:auto; line-height:20px;}
+.catalog .fq_this_bg_r{ background:url(images/cat_bg.png) -5px 0 no-repeat; height:20px; width:8px; float:left;}
+.catalog-nav {
+    float: left; font-weight:bold;
+}
+.catalog-data {
+    float: left;
+    margin-left: 5px;
+}
+.catalog .topclass-name {
+   
+    cursor: pointer;
+	padding:0px 3px;
+    text-decoration: none; color:#FFF;
+}
+.catalog .subclass-name {
+    cursor: pointer;
+    padding:3px 0px 3px 10px; 
+    text-decoration: none;
+
+}
+.catalog .subclass-count {
+    color: #FF0000;
+    margin-left: 3px;
+}
+.catalog .subclass-name:hover{
+   text-decoration:underline;
+}

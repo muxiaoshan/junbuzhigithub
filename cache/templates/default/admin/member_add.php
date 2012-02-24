@@ -1,0 +1,5 @@
+<? include handler('template')->file('@admin/header'); ?>
+ <form method="post"  action="<?=$action?>">
+<input type="hidden" name="FORMHASH" value='<?=FORMHASH?>'/> <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td colspan="2">添加新用户</td> </tr> <tr> <td bgcolor="#F4F8FC">用户名:</td> <td align="right"> <input type="text" name="username"></td> </tr> <tr> <td bgcolor="#F4F8FC">密码:</td> <td align="right"> <input type="text" name="password"></td> </tr> <tr> <td bgcolor="#F4F8FC">Email:</td> <td align="right"> <input type="text" name="email"></td> </tr> <tr> <td bgcolor="#F4F8FC">角色:</td> <td align="right">
+<?=$role_select?>（只有【合作商家】角色的用户才可在前台登陆后，进入商家管理、消费团购券）</td> </tr> </table> <br> <center><input type="submit" class="button" name="addsubmit" value="提 交"></center> </form>
+<? include handler('template')->file('@admin/footer'); ?>

@@ -1,0 +1,36 @@
+.price_calc {
+	width: 100%;
+	margin-top: 10px;
+	border-top: 2px solid #ccc;
+}
+.price_calc .left {
+	text-align: left;
+	padding: 6px 10px;
+	font-weight:600;
+	border-bottom:1px dotted #CCCCCC
+}
+.price_calc .right {
+	font-weight: bold;
+	width: 12%;
+	padding: 6px 10px;
+	color:#FF3D33;
+	border-bottom:1px dotted #CCCCCC
+}
+.price_calc .price {
+	color: #FF3D33;
+}
+.submit_div {
+	text-align: left;
+	margin-top: 10px;
+}
+.submit_div .extmsg {
+	width: 600px;
+	height: 40px;
+	margin-top:10px;
+}
+.submit_div #submit_status {
+	background: #c8c8c8;
+	border: 1px solid #8b8b8b;
+	padding: 5px;
+	display: none;
+}

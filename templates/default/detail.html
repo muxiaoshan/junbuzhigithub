@@ -1,0 +1,186 @@
+<!--{template header}-->
+{~ui('ad')->load('howdo')}
+{~ui('loader')->js('@time.lesser')}
+<div class="m960">
+<div class="t_l">
+<div class="like_share_this">
+{eval app('bshare')->load('product_detail', array('product'=>$product))}
+</div>
+<div class="t_area_out" style="border-width:2px;">
+<div class="t_area_in">
+<table class="at_jrat">
+<tbody>
+<tr>
+<td><span>今日团购：</span>{$product['name']}</td>
+</tr>
+</tbody>
+</table>
+<div  class="t_deal">
+<div class="t_deal_l t_deal_l2">
+<div class="at_buy">
+<div  class="price">￥{$product['nowprice']} </div>
+{if $product['time_remain'] < 0}
+<div class="deal_o"></div>
+{else}	
+{if $product['surplus']>0}
+<div class="deal_b"><a href="?mod=buy&code=checkout&id={$product['id']}"><img src="templates/default/images/buy_mm.gif"></a></div>
+{else}
+<div class="deal_y"></div>
+{/if} 
+{/if}
+</div>
+<div class="at_shuzi">
+<ul>
+<li>原价<br><h4 title="1680.00">￥{$product['price']}</h4></li>
+<li>折扣<br><h3>{$product['discount']}折</h3></li>
+<li class="red">节省<br><h3>￥{$product['price']-$product['nowprice']}</h3></li>
+</ul>
+</div>
+</div>
+<div class="t_deal_l mb_0625 mb_s4"> 
+距离本次团购结束还有：
+<div class="deal_djs" id="remainTime_{$product['id']}"></div>
+<script language="javascript">
+addTimeLesser($product['id'], $product['time_remain']);
+</script>
+</div>
+<div id="tuanState" style="float: left;" class="t_deal_l mb_0625">
+<div style="text-align: center;">
+<b class="B" >
+{if $product['type'] == 'prize'}
+抽奖人数 <span>{echo logic('prize')->allCount($product['id'])}</span>
+{if $product['time_remain'] < 0}
+{if logic('prize')->PrizeWIN($product['id'])}
+已开奖
+<br/>
+<a href="?mod=prize&code=view&pid={$product['id']}">查看中奖号码</a>
+{else}
+未开奖
+{/if}
+{/if}
+{else}
+已有<span>{$product['succ_buyers']}</span>人购买，售出<span>{$product['sells_count']}</span>份
+{/if}
+</b>
+<br/>
+{if $product['time_remain'] < 0}
+团购已结束！
+{else}
+{if $product['surplus']<=0}
+<img src="images/err.gif" />
+<span class="txt12">东西卖光啦，下次请赶早！</span>
+{else}
+<span class="txt12">数量有限，行动要快哦！</span><br/>
+{if $product['succ_remain']<=0}
+<img src="images/sue.gif" style="vertical-align:middle"/>
+<b class="R2">团购成功</b><br /><i class="B3">仍可继续购买</i>
+{else}
+达成团购还需{$product['succ_remain']}人 <br/>
+{if meta('p_ir_'.$product['id'])}<a href="{eval echo $this->Config[site_url]; }/?u={MEMBER_ID}" onclick="copyText(this.href);">邀请朋友一起买，返利{ini:product.default_payfinder}元</a>{/if}
+{/if}
+{/if}
+{/if}
+</div>
+</div>
+</div>
+<div class="t_deal_r">
+<div class="t_deal_r_img">
+{eval ui('iimager')->multis($product['id'], $product['imgs'])}
+</div>
+<div style="margin: 10px 0pt; clear: both;">
+<p>{$product['intro']}</p>
+</div>
+</div>
+<div style="clear: both; height: 0px; overflow:hidden;">&nbsp;</div>
+</div>
+</div>
+<div class="l_rc_t" ></div>
+<div class="t_area_out rc_t_area_out" style=" background-color:#f5f5f8; width:713px;" >
+<div  class="t_area_in t_padding" style="float:none;">
+<div id="product_detail_area"  class="t_detail_l"{if meta('p_hs_'.$product['id'])} style="width:711px;"{else} style="width:500px; overflow:hidden;"{/if}>
+<h4>本单详情</h4>
+<Script type="text/javascript">
+$("#t_detail_txt img").each(function(){
+if($(this).width() > $(this).parent().width()) {
+$(this).width("100%");
+}});
+</Script>
+<div id="t_detail_txt" class="t_detail_txt">{$product['content']}</div>
+{if $product['cue']}
+<h4>特别提示</h4>
+<div class="t_detail_txt">{$product['cue']}</div>
+{/if}
+{if $product['theysay']}
+<h4>他们说</h4>
+<div class="t_detail_txt">{$product['theysay']}</div>
+{/if}
+{if $product['wesay']}
+<h4>我们说</h4>
+<div class="t_detail_txt"{if meta('p_hs_'.$product['id'])} style="width:670px; "{/if}>
+<p ><span style="font-size:14px;"><span style="font-family: 宋体;">{$product['wesay']}</span></span></p>
+</div>
+{/if}
+</div>
+</div>
+{~ui('loader')->js('@product.detail')}
+{if !meta('p_hs_'.$product['id'])}
+<div class="t_detail_r"  style=" background-color:#f5f5f8;" >
+<h1>{$product['sellername']}</h1>
+{eval $sellermap = $product['sellermap']}
+{if $sellermap[0]!=''}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript"> 
+var map;
+var marker;
+function map_initialize()
+{
+var location = new google.maps.LatLng({$sellermap[0]}, {$sellermap[1]});
+var mapOptions = {
+zoom: {$sellermap[2]},
+center: location,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+var infowindow = new google.maps.InfoWindow({
+content: "{$product['selleraddress']}"
+});
+marker = new google.maps.Marker({
+map:map,
+animation: google.maps.Animation.DROP,
+position: location,
+title: "{$product['sellername']}"
+});
+google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+}
+</script>
+<div id="map_canvas" style="width:180px; height:280px;">
+<div style="padding:1em; color:gray;">正在载入...</div>
+</div>
+<br/><button id="img1" class="img2"><div class="map_big">查看完整地图</div></button>
+{/if}
+<p style="margin-top:10px; font-size:12px;">
+地址：{$product['selleraddress']}<br/>
+电话：{$product['sellerphone']}<br/>
+<a href="{$product['sellerurl']}" target="_blank">{$product['sellerurl']}</a>
+</p>
+{if $sellermap[0]!=''}
+<script type="text/javascript">
+$(document).ready(function() {
+$("#img1").click(function() {
+window.open('http://ditu.google.cn/?q={$sellermap[0]},{$sellermap[1]}');
+});
+{if $sellermap[0]!=''}map_initialize();{/if}
+});
+</script>
+{/if}
+</div>
+{/if}
+<div style="clear: both;"></div>
+</div>
+<div class="l_rc_b"></div>
+</div>
+<div class="t_r">
+<!--{~ui('widget')->load('index_detail')}-->
+</div>
+</div>
+<!--{template footer}-->

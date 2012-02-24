@@ -1,0 +1,126 @@
+<div class="m960">
+<div class="t_l List">
+{loop $product $item}
+{eval $icc++}
+{if $icc == 1}
+<div class="like_share_this" style="margin-left:40px;">
+{eval app('bshare')->load('product_detail', array('product'=>$item))}
+</div>
+<div class="t_area_out" style="border-width:2px;width:705px;margin-left:30px;">
+<div class="t_area_in" style=" _width:695px; *height:100%">
+<table class="at_jrat">
+<tbody>
+<tr>
+<td>
+<span>今日团购：</span>
+<a href="?view={$item['id']}">{$item['name']}</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="position: relative;" class="t_deal">
+<div class="t_deal_l t_deal_l2" >
+<div class="at_buy">
+<div style="text-align:center;font-size:30px;" class="price">￥{$item['nowprice']} </div>
+{if $item['surplus']>0}
+<div class="deal_b"><a href="?mod=buy&code=checkout&id={$item['id']}"><img src="templates/default/images/buy_mm.gif"></a></div>
+{else}
+<div class="deal_y"></div>
+{/if}
+</div>
+<div class="at_shuzi">
+<ul>
+<li>原价<br><h4 title="1680.00">￥{$item['price']}</h4></li>
+<li>折扣<br><h3>{$item['discount']}折</h3></li>
+<li class="red">节省<br><h3>￥{$item['price']-$item['nowprice']}</h3></li>
+</ul>
+</div>
+</div>
+<div class="t_deal_l mb_0625 mb_s4"> 
+距离本次团购结束还有：
+<div class="deal_djs" id="remainTime_{$item['id']}"></div>
+<script language="javascript">
+addTimeLesser($item['id'], $item['time_remain']);
+</script>
+</div>
+<div id="tuanState" style="float: left;" class="t_deal_l mb_0625">
+<div style="text-align: center;"> <b class="B"><span>{$item['succ_buyers']}</span>人已购买，售出<span>{$item['sells_count']}</span>份</b><br>
+{if $item['surplus']>0}
+{if $item['succ_remain']<=0}
+<img src="images/sue.gif" />
+<b class="R2">团购成功</b><br /><i class="B3">已达最低人数要求，仍可继续购买</i><br />
+<span class="txt12">数量有限行动要快哦</span>
+{else}
+达成团购还需{$item['succ_remain']}人 <br/>
+<a href="{eval echo $this->Config[site_url]; }/?u={MEMBER_ID}" onclick="copyText(this.href);">邀请朋友一起买，返利{ini:product.default_payfinder}元</a>
+{/if}
+{else}
+<img src="images/err.gif" />
+<span class="txt12">东西卖光啦，下次请赶早！</span>
+{/if}
+</div>
+</div>
+</div>
+<div class="t_deal_r">
+<div class="t_deal_r_img">
+{eval ui('iimager')->single($item['id'], $item['imgs'][0])}
+</div>
+<div style=" margin: 10px 0pt; clear: both;">
+<p>{$item['intro']}</p>
+</div>
+</div>
+<div style="clear: both; height: 0px;">&nbsp;</div>
+</div>
+</div>
+{else}
+<div class="t_area_out item m_item" >
+<div class="rc_t m_rc_t" ></div>
+<div class="t_area_in m_t_area_in" >
+<table class="at_jrat">
+<tbody>
+<tr>
+<td>
+<div class="at_jrat_title"><a href="?view={$item['id']}">{$item['name']}</a></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="t_deal_r">
+<div class="t_deal_r_img">
+{eval ui('iimager')->single($item['id'], $item['imgs'][0])}
+</div>
+</div>
+<div style="position: relative;" class="t_deal">
+<div class="t_deal_l">
+<div class="at_buy">
+<div class="price">￥{$item['nowprice']} </div>
+<div class="deal_b"><a href="?view={$item['id']}"  style="width:100px; height:100px; display: block;"></a></div>
+</div>
+<div class="at_shuzi">
+<ul>
+<li><span>原价</span><b class="prime_cost ">￥{$item['price']}</b></li>
+<li><span>节省</span><b>￥{$item['price']-$item['nowprice']}</b></li>
+<li><span>折扣</span><b style="color:#C00; font-size:18px">{$item['discount']}折</b></li>
+</ul>
+</div>
+</div>
+<div class="mb_0624"> 
+<div class="deal_djs" id="remainTime_{$item['id']}"></div>
+<script language="javascript">
+addTimeLesser($item['id'], $item['time_remain']);
+</script>
+</div>
+<div id="tuanState" class="mb_0626"><b>{$item['succ_buyers']}</b>人已购买</div>
+</div>
+<div style="clear: both; height: 0px; overflow:hidden;">&nbsp;</div>
+</div>
+<div class="rc_t1 m_rc_t1"></div>
+</div>
+{/loop}
+{/if}
+<div class="product_list_pager">{~page_moyo()}</div>
+</div>
+<div class="t_r">
+<!--{~ui('widget')->load('index_home')}-->
+</div>
+</div>

@@ -1,0 +1,31 @@
+<!--{template @admin/header}-->
+{~ui('loader')->js('@jquery.thickbox')}
+{~ui('loader')->css('@jquery.thickbox')}
+{~ui('loader')->js('#admin/js/push.mgr')}
+<table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td colspan="7"> <b>推送日志</b> - <a href="?mod=push&code=queue">[ 返回队列 ]</a> </td> </tr> <tr> <td colspan="7"> <div class="{echo $type == '' ? 'is_current' : 'is_button'}">
+{echo $type == '' ? '全部日志' : '<a href="?mod=push&code=log">全部日志</a>'}
+</div> <div class="{echo $type == 'sms' ? 'is_current' : 'is_button'}">
+{echo $type == 'sms' ? '短信日志' : '<a href="?mod=push&code=log&type=sms">短信日志</a>'}
+</div> <div class="{echo $type == 'mail' ? 'is_current' : 'is_button'}">
+{echo $type == 'mail' ? '邮件日志' : '<a href="?mod=push&code=log&type=mail">邮件日志</a>'}
+</div> <div class="is_button"> <a href="?mod=push&code=log&op=clear" onclick="return confirm('确认删除吗？');">删除一周前的邮件日志</a> </div> </td> </tr> <tr class="tr_nav"> <td width="10%" bgcolor="#F4F8FC">类型</td> <td width="10%" bgcolor="#F4F8FC">目标</td> <td bgcolor="#F4F8FC">数据</td> <td width="16%" bgcolor="#F4F8FC">原始结果</td> <td>发送时间</td> <td width="8%" bgcolor="#F4F8FC">管理</td> </tr> <!--{loop $list $one}--> <tr id="tr_of_{$one['id']}"> <td>{$one['type']}.{$one['driver']}</td> <td>{$one['target']}</td> <td>
+{eval
+$data = $one['data'];
+if (isset($data['subject']))
+echo $data['subject'].' [<a href="admin.php?mod=push&code=manage&op=preview&table=log&id='.$one['id'].'&keepThis=true&TB_iframe=true&height=300&width=500" title="'.$data['subject'].'" class="thickbox">查看邮件内容</a>]';
+else
+echo $data['content'];
+}
+</td> <td>{$one['result']}</td> <td>{echo date('Y-m-d H:i:s', $one['update'])}</td> <td>
+[ <a href="admin.php?mod=push&code=manage&op=resend&table=log&id={$one['id']}&keepThis=true&TB_iframe=true&height=300&width=500" title="重发确认" class="thickbox">重发</a> ]
+{if $one['type'] == 'mail'}
+{if time() - $one['update'] > 604800}
+[ <a href="javascript:;" onclick="push_data_delete(this, 'log', '{$one['id']}')">删除</a> ]
+{else}
+[ <font color="#cccccc" title="不可以删除发送时间在一周之内的邮件">删除</font> ]
+{/if}
+{/if}
+</td> </tr> <!--{/loop}--> <tr class="footer"> <td colspan="7">
+{~page_moyo()}
+</td> </tr> </table>
+{template @admin/footer}

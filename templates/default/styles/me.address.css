@@ -1,0 +1,10 @@
+.addressbox{width:100%}
+.addressbox td{padding:5px 6px}
+.addressbox .header{/*background:#FEBD92;*/text-align:center;height:33px}
+.addressbox .addlist{/*background:#FEF9ED;*/text-align:center;height:33px}
+.address_new{/*background:#FFF8E8;border:3px solid #FBD686;*/display:none;position:absolute;width:630px;margin:0 auto;padding:10px}
+.address_new .left{text-align:right;padding:3px}
+.address_new input{height:20px}
+.address_new select{width:100px}
+.address_new #addr_address{width:303px}
+.address_new .button{/*color:#333;border-color:#FF9 #960 #960 #FF9;background:#FC0;*/height:auto;cursor:pointer;font-size:12px;border-style:solid;border-width:1px;padding:5px}

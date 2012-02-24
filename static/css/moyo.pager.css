@@ -1,0 +1,31 @@
+.page_first {
+	margin: auto 3px;
+	padding-right: 3px;
+	border-right: 1px solid #ece9d8;
+}
+.page_last {
+	margin: auto 3px;
+	padding-left: 3px;
+	border-left: 1px solid #ece9d8;
+}
+.page_up {
+	margin: auto 3px;
+	font-weight: bold;
+}
+.page_down {
+	margin: auto 3px;
+	font-weight: bold;
+}
+.page_count {
+	margin-left: 10px;
+	color: #808080;
+}
+.page_current {
+	margin: auto 3px;
+	padding: 6px 10px;
+	background: #ece9d8;
+}
+.page_number {
+	margin: auto 3px;
+	padding: 0px 1px;
+}

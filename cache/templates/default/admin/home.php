@@ -1,0 +1,63 @@
+<? include handler('template')->file('@admin/header'); ?>
+ <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td> <div class="NavaL ntj">
+程序版本信息
+<a href="admin.php?mod=upgrade&code=signup" style="margin:5px;padding:5px 7px;color:#000;background:#BCE3F0;text-decoration:none;font-weight:normal;font-size:10px;">更新授权</a> </div> </td> </tr> <tr> <td>
+当前所用版本：V
+<?=SYS_VERSION?><?=SYS_RELEASE?>&nbsp;(<?=ini("settings.charset")?>)&nbsp;&nbsp;
+[ <span id="ups_alert">正在确定版本状态</span> ]
+<br/><?=logic('acl')->LicenceDSP()?>
+</td> </tr> <tr class="header"> <td><div class="NavaL nlj">团购常用操作</div></td> </tr> <tr> <td>
+1、初期设置：
+<a href="admin.php?mod=tttuangou&code=sitelogo">更换Logo</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=service&code=sms"><span class="fred">短信接口</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=service&code=mail">邮件设置</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=payment">支付接口</a> <br/>
+2、开团步骤：
+<a href="admin.php?mod=catalog">添加分类</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=express"><span class="fred">配送管理</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="?mod=product&code=add&~iiframe=yes">添加产品</a> <br/>
+3、售后管理：
+<a href="admin.php?mod=order&code=vlist">订单管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=coupon&code=vlist">团购券管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=delivery&code=vlist">发货管理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="admin.php?mod=tttuangou&code=mainfinder">返利管理</a> </td> </tr> </table> 
+<? if($statistic) { ?>
+ <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder datacount"> <tr class="header"> <td colspan="6"> <div class="NavaL nkj">网站数据统计</div> </td> </tr> <tr> <td>用户数：<b><a href="<?=$statistic['system_members']['url']?>"><?=$statistic['system_members']['total']?></a></b></td> <td>商家数：<b><a href="<?=$statistic['tttuangou_seller']['url']?>"><?=$statistic['tttuangou_seller']['total']?></a></b></td> <td>城市数：<b><a href="<?=$statistic['tttuangou_city']['url']?>"><?=$statistic['tttuangou_city']['total']?></a></b></td> <td>订阅数：<b><a href="<?=$statistic['tttuangou_subscribe']['url']?>"><?=$statistic['tttuangou_subscribe']['total']?></a></b></td> <td>问答数：<b><a href="<?=$statistic['tttuangou_question']['url']?>"><?=$statistic['tttuangou_question']['total']?></a></b></td> <td>反馈信息：<b><a href="<?=$statistic['tttuangou_usermsg']['url']?>"><?=$statistic['tttuangou_usermsg']['total']?></a></b></td> </tr> <tr> <td>产品数：<b><a href="<?=$statistic['tttuangou_product']['url']?>"><?=$statistic['tttuangou_product']['total']?></a></b></td> <td>订单数：<b><a href="<?=$statistic['tttuangou_order']['url']?>"><?=$statistic['tttuangou_order']['total']?></a></b></td> <td>团购券：<b><a href="<?=$statistic['tttuangou_ticket']['url']?>"><?=$statistic['tttuangou_ticket']['total']?></a></b></td> <td>等待发货：<b><a href="<?=$statistic['express_wait_count']['url']?>"><?=$statistic['express_wait_count']['total']?></a></b></td> <td>邮件队列：<b><a href="<?=$statistic['cron_length']['url']?>"><?=$statistic['cron_length']['total']?></a></b></td> <td>数据库：<b><a href="<?=$statistic['data_length']['url']?>"><?=$statistic['data_length']['total']?></a></b></td> </tr> </table> 
+<? } ?>
+ <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder" id="recommend_tabler" style="display: none;"> <tr class="header"> <td colspan="12"> <div class="NavaL ndt">天天团购官方动态</div> </td> </tr> <tr> <td id="recommend">正在载入中...</td> </tr> </table> <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td colspan="12"> <div class="NavaL ntj">相关系统推荐</div> </td> </tr> <tr> <td><A HREF="<?=ihelper('jsg.tg.admin')?>" target=_blank title="创新的开源微博系统，兼有sns、轻博和bbs特点">记事狗：下一代互动社区系统</A></td> <td><A HREF="<?=ihelper('ajh.tg.admin')?>" target=_blank title="专题是门户吸引流量的重要手段，爱聚合可自动建专题、聚内容、聚流量">爱聚合：专题网站系统</A></td> <td><A HREF="<?=ihelper('wzb.tg.admin')?>" target=_blank title="最全面采集方式+最强的伪原创，无缝集成到主流系统后台使用">网站宝：BBS/CMS建站必备</A></td> </tr> </table> 
+<? if($check_upgrade) { ?>
+ <script language="JavaScript" type="text/javascript" src="admin.php?mod=upgrade&code=check&js=1"></script> 
+<? } ?>
+ <script type="text/javascript">
+$(document).ready(function()
+{
+$.get('admin.php?mod=index&code=recommend', function(data)
+{
+if (data != '')
+{
+$('#recommend_tabler').show();
+$('#recommend').html(data);
+}
+});
+$.get('admin.php?mod=index&code=upgrade_check', function(data){
+if (data != 'noups')
+{
+$('#ups_alert').html(''+data+' &gt;&gt;&gt; <a href="admin.php?mod=upgrade"><font id="ups_alert_light" style="color:red;font-weight:bold;font-size:13px;">点此进行在线升级</font></a>');
+}
+else
+{
+$('#ups_alert').html('已是最新版本');
+}
+});
+if (typeof(lrcmd) != 'undefined' && typeof(lrcmd) == 'string')
+{
+$.get('admin.php?mod=index&code=lrcmd_nt&lv='+lrcmd, function(data){
+if (data != 'false')
+{
+$('#lic_recommend').html(data).slideDown();
+}
+});
+}
+});
+</script>
+<? include handler('template')->file('@admin/footer'); ?>

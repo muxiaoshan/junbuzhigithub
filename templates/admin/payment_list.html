@@ -1,0 +1,16 @@
+<!--{template @admin/header}--> <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td>技巧提示</td> </tr> <tr class="altbg1"> <td><ul> <li>天天团购系统已经支付宝、财付通等在线支付平台结为合作伙伴关系，可以在最短时间内、免费开通天天团购系统专用即时到账接口。</li> <li><A HREF="{~ihelper('tg.payment.alipay')}" target=_blank><font color=red>点此申请支付宝专用接口</font></a>，<A HREF="{~ihelper('tg.payment.tenpay')}" target=_blank><font color=blue>点此申请财付通专用接口</font></A>。</li> </ul></td> </tr> </table> <table cellspacing="1" cellpadding="4" width="100%" align="center" class="tableborder"> <tr class="header"> <td colspan="5">在线支付接口设置</td> </tr> <tr> <td width="20%" bgcolor="#F4F8FC">支付接口名称</td> <td width="40%" bgcolor="#F4F8FC">支付平台介绍</td> <td width="10%" bgcolor="#F4F8FC">显示顺序</td> <td width="10%" bgcolor="#F4F8FC">启用状态</td> <td width="10%" align="center" bgcolor="#F4F8FC">管理</td> </tr> <!--{loop $list $i $value}-->
+{eval if (isset($list_local[$value['code']])) unset($list_local[$value['code']]);}
+<tr> <td class="td-input-w100"> <font class="dbf" src="id:{$value['id']}@payment/name">{$value['name']}</font> </td> <td class="td-input-w100"> <font class="dbf" src="id:{$value['id']}@payment/detail">{$value['detail']}</font> </td> <td> <font class="dbf" src="id:{$value['id']}@payment/order">{$value['order']}</font> </td> <td> <font class="dbf" src="id:{$value['id']}@payment/enabled">{$value['enabled']}</font> </td> <td align="center">
+[ {echo $this->Config_link($value['code'])} ]
+</td> </tr> <!--{/loop}--> <!--{loop $list_local $flag $value}--> <tr style="background: #F7EAB9;"> <td class="td-input-w100">{$value['name']}</td> <td class="td-input-w100">{$value['detail']}</td> <td>--</td> <td>--</td> <td align="center">[ <a href="?mod=payment&code=install&flag={$flag}">安装</a> ]</td> </tr> <!--{/loop}--> <tr class="banner"> <td colspan="5">
+是否先行发送团购券？
+<font class="ini" src="payment.trade.sendgoodsfirst"></font>
+（针对一些担保交易接口，用户付款到支付平台时是否先发放团购券【虚拟产品】）
+</td> </tr> <tr class="footer"> <td colspan="5"> <b>说明</b>：
+<br/>
+1、<img class="_flag_img" key="enable" /> 表示启用，<img class="_flag_img" key="disable" /> 表示不启用，点击图标可以快速切换
+<br/>
+2、输入框均支持实时保存，编辑完成后会自动保存到服务器，无需提交
+</td> </tr> </table>
+{~ui('loader')->js('#admin/js/sdb.parser')}
+{template @admin/footer}

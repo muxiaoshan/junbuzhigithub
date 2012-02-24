@@ -1,0 +1,27 @@
+.express_div {
+	margin: 10px auto;
+}
+.express_div .title {
+	padding: 5px;
+	background:none;
+	font-size:14px;
+	font-weight:600;
+}
+.express_div #address_first {
+	margin: 5px auto;
+	padding: 6px;
+	border: 1px solid #ee6d04;
+	background: #FFE9D7;
+}
+.express_div ul {
+	list-style: none;
+}
+.express_div ul li {
+	padding: 3px 10px;
+	margin: 10px auto;
+}
+.express_div ul li .detail {
+    margin: 3px 20px;
+    padding: 3px;
+    border: 1px solid #999;
+}

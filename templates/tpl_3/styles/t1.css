@@ -1,0 +1,109 @@
+/*模板三 喜庆风格*/
+body{background:url(../images/bg-deal.jpg) no-repeat 50% 0 #FFEDDC;}
+#Tpl_c{/*margin-left:430px*/}
+a{color:#E20303}
+.header{background:url(../images/bg_hd_new.jpg) repeat-x;height:87px;}
+.at_logo .vcoupon{ background:#515151}
+.logo{background:url(../images/logo.png) no-repeat}
+.at_logo{background:none;}
+.at_logo a.at_city{background:url(../images/cmb.png) no-repeat;width:70px;height:25px;line-height:25px;}
+.t_nav{background:url(../images/at_nav_bg.jpg) repeat-x;height:49px;}
+.t_nav a{background:none;}
+.t_nav a.current,.t_nav a:hover{background:url(../images/sell_bg1.gif) no-repeat 0 10px;padding:0 16px; color:#E20303;}
+.at_jrat{color:#4C2005;}
+.at_jrat a{ color:#4c2005; text-decoration:none;}
+.t_area_out{border:none;}
+/*增加*/
+
+.at_buy{background:url(../images/deal_tag_t3.png) no-repeat;_background:url(../images/deal_tag_t3.gif) no-repeat; left:-34px; top:-10px;}
+.at_buy .deal_b{background:url(../images/btn_buy_t3.png)  no-repeat; width:108px; margin-top:10px;}
+.at_buy .price{margin-left:25px;}
+.at_buy .deal_y{background:url(../images/btn_buy_none.png) no-repeat; width:108px;margin-top:10px;}
+.at_buy .deal_o{background:url(../images/btn_buy_over.png) no-repeat; width:108px;margin-top:10px;}
+.at_zk{background:url(../images/cmb.png) -110px 0;}
+.at_invite{width:207px;height:140px;background:url(../images/cmb.png) -248px 2px no-repeat;margin:2px}
+.fanli_0625{position:absolute;z-index:10;font-size:18px;font-family:黑体;font-weight:500;color:#C32033;margin:82px 20px 30px 70px}
+.t_padding{background:#fef2f2;padding-bottom:2px;}
+.t_detail_r{background:#fdf2eb;}
+.t_detail_l h4{background:url(../images/cmb.png) 0 -321px no-repeat;color:#fff;font-size:16px;font-weight:500;line-height:30px;font-family:黑体;margin:10px 0 0 10px; border:none; height:30px;}
+.t_l h1{color:#ef5602;}
+.t_detail_txt{background:#FFF;}
+.at_xts{margin:25px 0 10px 10px;}
+.at_xts_t{width:454px;height:20px;overflow:hidden;background:url(../images/banner_details.gif) no-repeat;height:93px;}
+.at_xts_t .sName{color:#fff;margin-top:15px; width:50px;  padding-left:7px; line-height:23px; font-size:20px; background:none;}
+.at_xts_f{width:454px;height:20px; background:none;}
+.at_xts_m{width:450px; margin-left:0; border:none;}
+.t_l .cur_title{color:#000;}
+.footer{background:url(../images/at_f_bg.gif) repeat-x 0 23px;}
+.ft_bg a{color:#fff;}
+.t_deal_l,.mb_0625{background:#FEF9F2;border:1px solid #FFD2C4;}
+.t_deal_l2{ background:#FEF2F2; border:1px solid #FFAC92;}
+.like_share_this{border:1px solid #FB8569;}
+.at_jrat td span{ color:#C70D13;}
+.at_logo a{color:#fff;}
+.at_logo a.ft_top{color:#333;}
+#page_options{ color:#333;}
+.at_logo .vcoupon{ border:none;}
+.ts_menu_2{ height:36px;}
+.ts3_mbtn1{background:url(../images/my_1.gif); width:92px; height:37px; line-height:36px;}
+.ts3_mbtn2{background:url(../images/my_3.gif); width:92px; height:37px; line-height:36px;}
+.like_share_this{background:url(../images/g_bg_y.gif) no-repeat;line-height:22px;margin-left:18px;padding:6px 10px 6px 15px;border:none;}
+/*新加样式*/
+.product_list .name a{ color:#E20303;}
+#top-link{background:url(../images/up.gif) no-repeat; width:27px; height:72px; bottom:25px;}
+#show_provinces{ border-color:#FFD3C6; background:#fff; padding:0; }
+.city_chose{ background:#FEF9F2; height:25px; text-indent:10px;}
+.city_close{background:url(../images/close.gif) no-repeat; width:15px; height:15px;overflow:hidden; top:8px; right:2px;text-indent:100000; font-size:0.0001px;}
+ul.scity{ padding:0 5px;}
+/*邮件订阅*/
+.enter_address{background:#FEF9F2;border:1px solid #FFD3C6;}
+/*全部团购*/
+ul.deal_list li{ background:#fff; border-top:1px dashed #CBCBCB}
+ul.deal_list li .pic2{float:left;height:115px;position:relative;width:160px;margin:0}
+.pic2 img{text-align:center;vertical-align:middle}
+/*我的团购导航*/
+.t_nav .sign{float:right;position:relative;font-family:Arial;color:#fff;background:url(../images/g_navline_n.gif) no-repeat;}
+.t_nav .sign a:hover{ color:#fff;}
+.sign .menu_tqs{ background:#a20505; height:47px; line-height:47px;}
+.sign .menu_tqb{ background:#a20505;border:none; top:46px; padding:0; width:130px;}
+.sign .menu_tqb a{width:130px; padding:0; border-top:1px solid #e23939; border-bottom:1px solid #940303;text-align:center; line-height:40px;}
+.sign .menu_tqb a:hover{background:#c40c0c;width:130px; padding:0; line-height:40px; color:#fff;}
+.sign .menu_tqb .sh_t{ border-top:none;}
+/*我的团购*/
+#report th{ /*background:url(../images/report_hd.jpg) repeat-x; */color:#333; background:#EBDBCC; border-right:2px solid #fff;}
+#report td{ background:#fff;}
+#report tr.odd td{ background:#f9f9f9; border-right:2px solid #fff;}
+.nleftL .liL_2{ background:#E20303;}
+.ts3_mbtn1 a:link,.ts3_mbtn1 a:hover,.ts3_mbtn1 a:visited{color:#333;}
+.ts3_mbtn2 a:link, .ts3_mbtn2 a:visited{ color:#333; text-decoration:none;}
+.ts3_mbtn2 a:hover{color:#E20303;text-decoration:none;}
+input.formbutton,.save{border-color:#ffdecf #ccc #ccc #ffdecf;background:#E20303; color:#fff;}
+/*收货地址*/
+.addressbox .header{background:#ebdbcc;}
+.addressbox .addlist{background:#f6f6f6;}
+.address_new{background:#fef7f2;border:3px solid #ffcead;}
+.address_new .button{color:#fff;background:#E20303;border-color:#ffdecf #ccc #ccc #ffdecf;}
+.address .lrf a{background:#e20303;border-color:#ffdecf #ccc #ccc #ffdecf;color:#fff;}
+/*底部*/
+#ft ul{background:#none; color:#333;}
+#ft ul,#ft ul a,#ft {color:#666;}
+#ft h3{color:#666;}
+#ft li.col{border-right:1px dashed #ccc;}
+#ft li.end{border:none;}
+#ft #logo-footer { background:url(../images/logo.png) no-repeat; width:230px; height:66px;}
+.friend_link{ background-color:#FFEDDC;}
+.link h3{ color:#666;}
+.link a{ color:#666;}
+/*返回顶部*/
+.backTop{width:27px;height:72px; right:0;}
+a.goTop{width:27px;height:72px;display:block;background:url(../images/up.gif) 0 0 no-repeat;}
+/*新增团购列表*/
+.List .item{ border:1px solid #FDE3D5}
+.List .item .at_buy{position:absolute;background:url(../images/bg_deal_see_t3.png) no-repeat;_background:url(../images/bg_deal_see_t3.gif) no-repeat;width:201px;height:66px;left:-22px;top:-1px;}
+.rc_t,.rc_t1{ display:none;}
+.List .m_item{ border-width:2px;}
+.m_t_area_in{ border:none;}
+
+.t_r .t_area_out{border-left:1px solid #FEBD92;border-right:1px solid #FEBD92;}
+.l_rc_t{display:none;}
+.l_rc_b{display:none;}

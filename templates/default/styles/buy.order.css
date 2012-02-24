@@ -1,0 +1,6 @@
+.submit_div #submit_status {
+	background: #c8c8c8;
+	border: 1px solid #8b8b8b;
+	padding: 5px;
+	display: none;
+}

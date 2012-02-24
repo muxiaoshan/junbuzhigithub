@@ -1,0 +1,29 @@
+<html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <title>googleAPI地图接口</title> <script src="http://ditu.google.cn/maps?file=api&amp;v=2&amp;key={$this->config['default_googlemapkey']}&sensor=false" 
+type="text/javascript"></script> </head> <body onLoad="initialize()" onUnload="GUnload()"> <div id="map_canvas" style="width: 600px; height: 500px"></div> 
+您只需要点击地图上的标签到指定的地方，关闭该窗口即可，系统会自己收集您的坐标！
+<script type="text/javascript"> 
+var xyz;
+function initialize() { 
+if (GBrowserIsCompatible()) { 
+var map = new GMap2(document.getElementById("map_canvas")); 
+map.addControl(new GLargeMapControl()); 
+map.addControl(new GMapTypeControl()); 
+map.addControl(new GScaleControl()); 
+map.addControl(new GOverviewMapControl());
+map.addControl(new GHierarchicalMapTypeControl());
+map.enableGoogleBar();
+map.setCenter(new GLatLng({$x},{$y}),{$z}); 
+var boundaries = new GLatLngBounds(new GLatLng(39.917, 116.397), new GLatLng(39.935, 116.42));
+map.openInfoWindowHtml(map.getCenter(),"<font color='blue' size='2'>欢迎使用天天团购系统</font>");
+var marker = new GMarker(new GLatLng({$x},{$y}), {draggable: true});
+map.addOverlay(marker);
+} 
+GEvent.addListener(map, "click", function(overlay,latlng) {
+map.removeOverlay(marker);
+marker = new GMarker(new GLatLng( latlng.lat(),+latlng.lng()), {draggable: true});
+map.addOverlay(marker);		  
+xyz=latlng.lat()+","+latlng.lng()+"," + map.getZoom();
+window.opener.getxy(xyz);
+});
+} 
+</script> </body> </html>
