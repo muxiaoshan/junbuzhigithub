@@ -510,6 +510,21 @@ $config["rbac"] =  array (
           'name' => '',
           'enabled' => false,
         ),
+        'modify_shortcut' => 
+        array (
+          'name' => '',
+          'enabled' => false,
+        ),
+        'modify_normal' => 
+        array (
+          'name' => '',
+          'enabled' => false,
+        ),
+        'modify_filter' => 
+        array (
+          'name' => '',
+          'enabled' => false,
+        ),
       ),
       'link' => 
       array (
@@ -1451,6 +1466,14 @@ $config["rbac"] =  array (
       'print' => 
       array (
         'delivery_queue' => 
+        array (
+          'name' => '',
+          'enabled' => false,
+        ),
+      ),
+      'upload' => 
+      array (
+        'config' => 
         array (
           'name' => '',
           'enabled' => false,

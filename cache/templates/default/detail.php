@@ -18,7 +18,7 @@
 <div  class="t_deal">
 <div class="t_deal_l t_deal_l2">
 <div class="at_buy">
-<div  class="price">￥<?=$product['nowprice']?> </div>
+<div  class="price"> </div>
 <? if($product['time_remain'] < 0) { ?>
 <div class="deal_o"></div>
 <? } else { ?>
@@ -32,10 +32,13 @@
 <div class="at_shuzi">
 <ul>
 <li>原价<br><h4 title="1680.00">￥<?=$product['price']?></h4></li>
-<li>折扣<br><h3><?=$product['discount']?>折</h3></li>
-<li class="red">节省<br><h3>￥<?=$product['price']-$product['nowprice']?></h3></li>
+<li>最多折扣<br><h3><?=$product['discount']?>折</h3></li>
+<li class="red">最多节省<br><h3>￥<?=$product['price']-$product['nowprice']?></h3></li>
 </ul>
 </div>
+</div>
+<div class="t_deal_l mb_0625 mb_s4">
+<a href="?mod=buy&code=matchprice&id=<?=$product['id']?>">￥<input name="priceNamed" size=15 /></a>
 </div>
 <div class="t_deal_l mb_0625 mb_s4"> 
 距离本次团购结束还有：

@@ -213,6 +213,10 @@ class ModuleObject extends MasterObject
         logic('order')->Processed($id, 'TRADE_FINISHED');
         $this->Messager(__('本次交易已经完成！'), '?mod=me&code=order');
     }
+    
+    function Matchprice(){
+    	 include handler('template')->file('buy_matchprice');
+    }
 }
 
 ?>

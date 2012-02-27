@@ -16,13 +16,13 @@ $cache=array (
   array (
     'name' => '商家数',
     'url' => 'admin.php?mod=tttuangou&code=mainseller',
-    'total' => '2',
+    'total' => '3',
   ),
   'tttuangou_product' => 
   array (
     'name' => '产品数',
     'url' => 'admin.php?mod=product',
-    'total' => '4',
+    'total' => '5',
   ),
   'tttuangou_order' => 
   array (

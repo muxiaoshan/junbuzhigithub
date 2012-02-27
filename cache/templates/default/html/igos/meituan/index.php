@@ -22,14 +22,14 @@
 <div style="position: relative;" class="t_deal">
 <div class="t_deal_l">
 <div class="at_buy">
-<div class="price">￥<?=$item['nowprice']?> </div>
+<div class="price"></div>
 <div class="deal_b"><a href="?view=<?=$item['id']?>"  style="width:100px; height:100px; display: block;"></a></div>
 </div>
 <div class="at_shuzi">
 <ul>
-<li><span>原价</span><b class="prime_cost ">￥<?=$item['price']?></b></li>
-<li><span>节省</span><b>￥<?=$item['price']-$item['nowprice']?></b></li>
-<li><span>折扣</span><b style="color:#C00; font-size:18px"><?=$item['discount']?>折</b></li>
+<li><span>&nbsp;原价</span><b class="prime_cost ">￥<?=$item['price']?></b></li>
+<li><span>&nbsp;最多节省</span><b>￥<?=$item['price']-$item['nowprice']?></b></li>
+<li><span>&nbsp;最多折扣</span><b style="color:#C00; font-size:18px"><?=$item['discount']?>折</b></li>
 </ul>
 </div>
 </div>

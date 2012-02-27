@@ -6,7 +6,7 @@
  *
  * @author www.tttuangou.net
  *
- * @time 2012-02-05 16:38
+ * @time 2012-02-25 10:48
  *********************************************/
  
   
@@ -115,6 +115,6 @@ php程序员一名<br />',
 </div>',
   'default_virtualnum' => '3',
   'default_oncemin' => '1',
-  'default_style' => 'styles0',
+  'default_style' => 'styles1',
 );
 ?>
